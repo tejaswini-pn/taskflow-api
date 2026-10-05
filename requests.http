@@ -1,0 +1,33 @@
+### Register
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{"name": "Tejaswini", "email": "tej@example.com", "password": "Password123"}
+
+### Login
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{"email": "tej@example.com", "password": "Password123"}
+
+### Create task  (replace TOKEN)
+POST http://localhost:8080/api/v1/tasks
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{"title": "Learn Spring Boot", "description": "Finish TaskFlow", "priority": "HIGH", "dueDate": "2026-10-20"}
+
+### List tasks
+GET http://localhost:8080/api/v1/tasks?status=TODO&page=0&size=10
+Authorization: Bearer TOKEN
+
+### Move status
+PATCH http://localhost:8080/api/v1/tasks/1/status
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{"status": "IN_PROGRESS"}
+
+### Summary
+GET http://localhost:8080/api/v1/tasks/summary
+Authorization: Bearer TOKEN
